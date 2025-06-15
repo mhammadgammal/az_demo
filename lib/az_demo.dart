@@ -1,3 +1,5 @@
+import 'package:az_demo/core/router/app_router.dart';
+import 'package:az_demo/core/router/route_keys.dart';
 import 'package:az_demo/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -12,16 +14,8 @@ class AzDemo extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
-      home: Scaffold(
-        body: Center(
-          child: Card(
-            child: Text(
-              "Hello World",
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
-          ),
-        ),
-      ),
+      routes: routes,
+      initialRoute: RouteKeys.splash,
     );
   }
 }
