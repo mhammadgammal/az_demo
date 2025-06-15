@@ -1,3 +1,4 @@
+import 'package:az_demo/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class AzDemo extends StatelessWidget {
@@ -8,10 +9,19 @@ class AzDemo extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'AZ Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.system,
+      home: Scaffold(
+        body: Center(
+          child: Card(
+            child: Text(
+              "Hello World",
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+          ),
+        ),
       ),
-      home: Scaffold(body: Placeholder()),
     );
   }
 }
