@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocConsumer;
 
 import 'widgets/email_text_field.dart';
+import 'widgets/login_button.dart';
 import 'widgets/password_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -75,16 +76,13 @@ class LoginScreen extends StatelessWidget {
                       },
                     ),
                     SizedBox(height: 20),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (cubit.formKey.currentState!.validate()) {
-                            cubit.login();
-                          }
-                        },
-                        child: Text('Login'),
-                      ),
+                    LoginButton(
+                      isLoading: state is LoginLoadingState,
+                      onPressed: () {
+                        if (cubit.formKey.currentState?.validate() ?? false) {
+                          cubit.login();
+                        }
+                      },
                     ),
                   ],
                 ),
