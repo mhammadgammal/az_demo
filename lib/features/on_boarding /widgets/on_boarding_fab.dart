@@ -22,7 +22,7 @@ class OnBoardingFab extends StatelessWidget {
           secondChild: _getStartedFab(
             context,
             onPressed: () {
-              AppNavigator.navigateTo(context, RouteKeys.login);
+              AppNavigator.replaceWith(context, RouteKeys.login);
             },
           ),
           crossFadeState:
