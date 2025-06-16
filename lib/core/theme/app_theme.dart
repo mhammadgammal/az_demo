@@ -6,7 +6,7 @@ abstract class AppTheme {
   static ThemeData get light => ThemeData(
     brightness: Brightness.light,
     primaryColor: AppColors.lightPrimary,
-    scaffoldBackgroundColor: AppColors.lightPrimary,
+    scaffoldBackgroundColor: AppColors.lightBackground,
     cardColor: AppColors.lightSurface,
     dividerColor: AppColors.lightDivider,
 
