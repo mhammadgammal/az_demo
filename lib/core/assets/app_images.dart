@@ -1,6 +1,9 @@
 abstract class AppImages {
-  // on boarding images
+  // logo
 
+  static const String logo = "assets/images/logo/app_logo.jpg";
+
+  // on boarding images
   static const String getYourOrder =
       "assets/images/on_boarding/get_your_order.png";
   static const String purchaseOnline =
