@@ -1,3 +1,5 @@
+import 'package:az_demo/core/router/app_navigator.dart';
+import 'package:az_demo/core/router/route_keys.dart';
 import 'package:az_demo/core/theme/app_colors.dart';
 import 'package:az_demo/features/on_boarding%20/cubit/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,12 @@ class OnBoardingFab extends StatelessWidget {
               cubit.navToNextPage();
             },
           ),
-          secondChild: _getStartedFab(context, onPressed: () {}),
+          secondChild: _getStartedFab(
+            context,
+            onPressed: () {
+              AppNavigator.navigateTo(context, RouteKeys.login);
+            },
+          ),
           crossFadeState:
               cubit.lastPage
                   ? CrossFadeState.showSecond
@@ -35,22 +42,25 @@ class OnBoardingFab extends StatelessWidget {
   );
 
   _getStartedFab(BuildContext context, {required VoidCallback onPressed}) =>
-      Container(
-        width: 100,
-        height: 30,
-        decoration: BoxDecoration(
-          color:
-              Theme.of(context).brightness == Brightness.light
-                  ? AppColors.lightAccent
-                  : AppColors.darkAccent,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Center(
-          child: Text(
-            'Get Started',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+      GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          width: 100,
+          height: 30,
+          decoration: BoxDecoration(
+            color:
+                Theme.of(context).brightness == Brightness.light
+                    ? AppColors.lightAccent
+                    : AppColors.darkAccent,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Center(
+            child: Text(
+              'Get Started',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
