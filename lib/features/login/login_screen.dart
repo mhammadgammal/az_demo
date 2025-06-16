@@ -1,4 +1,6 @@
 import 'package:az_demo/core/assets/app_images.dart';
+import 'package:az_demo/core/router/app_navigator.dart';
+import 'package:az_demo/core/router/route_keys.dart';
 import 'package:az_demo/features/login/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocConsumer;
@@ -17,10 +19,7 @@ class LoginScreen extends StatelessWidget {
       body: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginSuccessState) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text('Login successful!')));
-            // Navigate to the next screen or perform any action on success
+            AppNavigator.replaceWith(context, RouteKeys.home);
           }
         },
         builder: (context, state) {
