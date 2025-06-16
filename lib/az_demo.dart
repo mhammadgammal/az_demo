@@ -13,9 +13,9 @@ class AzDemo extends StatelessWidget {
       title: 'AZ Demo',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       routes: routes,
-      initialRoute: RouteKeys.splash,
+      initialRoute: RouteKeys.onBoarding,
     );
   }
 }
