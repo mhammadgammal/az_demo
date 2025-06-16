@@ -1,4 +1,6 @@
 import 'package:az_demo/core/router/route_keys.dart';
+import 'package:az_demo/features/login/cubit/login_cubit.dart';
+import 'package:az_demo/features/login/login_screen.dart';
 import 'package:az_demo/features/on_boarding%20/cubit/on_boarding_cubit.dart';
 import 'package:az_demo/features/on_boarding%20/on_boarding_screen.dart';
 import 'package:flutter/material.dart'
@@ -12,7 +14,9 @@ final routes = <String, WidgetBuilder>{
         create: (_) => OnBoardingCubit(),
         child: OnBoardingScreen(),
       ),
-  RouteKeys.login: (context) => _screensPlaceholder(RouteKeys.login),
+  RouteKeys.login:
+      (context) =>
+          BlocProvider(create: (_) => LoginCubit(), child: const LoginScreen()),
   RouteKeys.home: (context) => _screensPlaceholder(RouteKeys.home),
 };
 
