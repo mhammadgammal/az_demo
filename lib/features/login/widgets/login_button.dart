@@ -1,4 +1,3 @@
-import 'package:az_demo/core/widgets/ShimmerLoading.dart';
 import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
@@ -15,10 +14,10 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child:
-          isLoading
-              ? ShimmerLoading()
-              : ElevatedButton(onPressed: onPressed, child: Text('Login')),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: isLoading ? CircularProgressIndicator() : Text('Login'),
+      ),
     );
   }
 }

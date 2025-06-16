@@ -1,7 +1,7 @@
-import 'package:az_demo/core/widgets/app_text_form_field.dart';
+import 'package:az_demo/core/widgets/animated_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class EmailTextField extends StatelessWidget {
+class EmailTextField extends StatefulWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
   final void Function() onSubmitted;
@@ -14,12 +14,28 @@ class EmailTextField extends StatelessWidget {
   });
 
   @override
+  State<EmailTextField> createState() => _EmailTextFieldState();
+}
+
+class _EmailTextFieldState extends State<EmailTextField>
+    with SingleTickerProviderStateMixin {
+  bool isFocused = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.focusNode.addListener(() {
+      setState(() => isFocused = widget.focusNode.hasFocus);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      controller: controller,
-      focusNode: focusNode,
+    return AnimatedTextFormField(
+      controller: widget.controller,
+      focusNode: widget.focusNode,
       inputType: TextInputType.emailAddress,
-      onSubmit: (_) => onSubmitted(),
+      onSubmit: (_) => widget.onSubmitted(),
       inputAction: TextInputAction.next,
       fieldLabel: 'Email',
       icon: Icon(Icons.email_outlined),

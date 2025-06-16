@@ -104,6 +104,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         onChanged: widget.onChanged,
         validator: widget.validate,
         onSaved: widget.onSubmit,
+        onTapOutside: (_) => FocusScope.of(context).unfocus(),
       ),
     );
   }
