@@ -26,7 +26,11 @@ abstract class AppTheme {
       backgroundColor: AppColors.lightAccent,
       foregroundColor: Colors.white,
     ),
-
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStatePropertyAll(AppColors.lightAccent),
+      ),
+    ),
     colorScheme: const ColorScheme.light(
       primary: AppColors.lightPrimary,
       secondary: AppColors.lightAccent,
@@ -65,7 +69,11 @@ abstract class AppTheme {
       backgroundColor: AppColors.darkAccent,
       foregroundColor: AppColors.darkBackground,
     ),
-
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStatePropertyAll(AppColors.darkAccent),
+      ),
+    ),
     colorScheme: const ColorScheme.dark(
       primary: AppColors.darkPrimary,
       secondary: AppColors.darkAccent,
