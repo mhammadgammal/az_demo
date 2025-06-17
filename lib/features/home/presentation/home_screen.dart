@@ -1,5 +1,6 @@
 import 'package:az_demo/core/app_cubit/app_cubit.dart';
 import 'package:az_demo/core/assets/app_images.dart';
+import 'package:az_demo/core/theme/app_colors.dart';
 import 'package:az_demo/features/home/presentation/cubit/home_cubit.dart';
 import 'package:az_demo/features/home/presentation/widgets/service_card.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          _showAddCardDialog(context);
+        },
+      ),
       appBar: AppBar(
         title: const Text('Home Screen'),
         leading: IconButton(
@@ -77,6 +84,34 @@ class HomeScreen extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+
+  void _showAddCardDialog(BuildContext cubitCtx) {
+    showModalBottomSheet(
+      context: cubitCtx,
+      builder:
+          (context) => Container(
+            // duration: const Duration(seconds: 2),
+            width: double.infinity,
+            height: 200,
+            decoration: BoxDecoration(
+              color:
+                  AppCubit.get(context).isDarkMode
+                      ? AppColors.darkBackground
+                      : AppColors.lightBackground,
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  HomeCubit.get(cubitCtx).addService();
+                  Navigator.pop(context);
+                },
+                child: const Text('Add Card'),
+              ),
+            ),
+          ),
     );
   }
 }
