@@ -93,7 +93,7 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField>
         maxLines: widget.maxLines,
         minLines: widget.minLines,
         labelColor: widget.labelColor,
-        iconColor: widget.iconColor,
+        // iconColor: widget.iconColor,
         textFieldTextColor: widget.textFieldTextColor,
         onChanged: widget.onChanged,
         cursorColor: widget.cursorColor,

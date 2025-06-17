@@ -17,7 +17,6 @@ class AppTextFormField extends StatefulWidget {
     this.maxLines,
     this.minLines,
     this.labelColor = AppColors.lightTextPrimary,
-    this.iconColor = AppColors.lightTextPrimary,
     this.textFieldTextColor = AppColors.lightPrimary,
     this.onChanged,
     this.cursorColor = AppColors.lightPrimary,
@@ -41,7 +40,8 @@ class AppTextFormField extends StatefulWidget {
   final bool isEnabled;
   final String? initialValue;
   final Color labelColor;
-  final Color iconColor;
+
+  // final Color iconColor;
   final Color textFieldTextColor;
   final Color cursorColor;
   final int? maxLength;
@@ -57,20 +57,20 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
     return Theme(
       data: Theme.of(context).copyWith(
         textSelectionTheme: const TextSelectionThemeData(
-          selectionHandleColor: AppColors.lightPrimary,
-          selectionColor: AppColors.lightPrimary,
+          selectionHandleColor: Colors.grey,
+          selectionColor: Colors.grey,
         ),
       ),
       child: TextFormField(
         controller: widget.controller,
         keyboardType: widget.inputType,
-        style: TextStyle(color: widget.textFieldTextColor),
+        style: Theme.of(context).textTheme.bodyMedium,
         decoration: InputDecoration(
           labelText: widget.fieldLabel,
-          labelStyle: TextStyle(color: widget.labelColor),
+          labelStyle: Theme.of(context).textTheme.bodyMedium,
           prefixIcon: widget.icon,
           suffixIcon: widget.suffixIcon,
-          prefixIconColor: widget.iconColor,
+          // prefixIconColor: widget.iconColor,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0),
             borderSide: const BorderSide(color: Colors.grey, width: 1.5),
