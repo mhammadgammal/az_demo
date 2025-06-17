@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
             AppNavigator.replaceWith(context, RouteKeys.onBoarding);
           },
           opacity: _opacity,
-          duration: const Duration(seconds: 2),
+          duration: const Duration(seconds: 3),
           child: SizedBox(
             width: 200,
             height: 200,
