@@ -25,7 +25,7 @@ class AzDemo extends StatelessWidget {
                     ? ThemeMode.dark
                     : ThemeMode.light,
             routes: routes,
-            initialRoute: RouteKeys.onBoarding,
+            initialRoute: RouteKeys.splash,
           );
         },
       ),

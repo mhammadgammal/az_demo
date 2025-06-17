@@ -5,12 +5,13 @@ import 'package:az_demo/features/login/cubit/login_cubit.dart';
 import 'package:az_demo/features/login/login_screen.dart';
 import 'package:az_demo/features/on_boarding%20/cubit/on_boarding_cubit.dart';
 import 'package:az_demo/features/on_boarding%20/on_boarding_screen.dart';
+import 'package:az_demo/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart'
     show Center, Scaffold, Text, WidgetBuilder;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 final routes = <String, WidgetBuilder>{
-  RouteKeys.splash: (context) => _screensPlaceholder(RouteKeys.splash),
+  RouteKeys.splash: (context) => SplashScreen(),
   RouteKeys.onBoarding:
       (context) => BlocProvider(
         create: (_) => OnBoardingCubit(),
