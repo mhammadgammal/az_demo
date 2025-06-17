@@ -1,4 +1,6 @@
 import 'package:az_demo/core/router/route_keys.dart';
+import 'package:az_demo/features/home/presentation/cubit/home_cubit.dart';
+import 'package:az_demo/features/home/presentation/home_screen.dart';
 import 'package:az_demo/features/login/cubit/login_cubit.dart';
 import 'package:az_demo/features/login/login_screen.dart';
 import 'package:az_demo/features/on_boarding%20/cubit/on_boarding_cubit.dart';
@@ -17,7 +19,11 @@ final routes = <String, WidgetBuilder>{
   RouteKeys.login:
       (context) =>
           BlocProvider(create: (_) => LoginCubit(), child: const LoginScreen()),
-  RouteKeys.home: (context) => _screensPlaceholder(RouteKeys.home),
+  RouteKeys.home:
+      (context) => BlocProvider(
+        create: (context) => HomeCubit(3)..staggeredReveal(),
+        child: HomeScreen(),
+      ),
 };
 
 _screensPlaceholder(String screenName) {
